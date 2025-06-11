@@ -139,7 +139,8 @@ public class Inventory
                 }
                 break;
             case ItemType.consumable:
-                var consumableItem = selectItem.itemData as ConsumableItemData;
+                ConsumableItemData consumableItem = selectItem.itemData as ConsumableItemData;
+                selectItem.ChangeQauntity(-1);
                 foreach (ConsumeEffect consumEffect in consumableItem.consumEffect)
                 {
                     

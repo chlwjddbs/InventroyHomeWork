@@ -9,20 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: b276337d551a18a47bfb8205c158eebc, type: 3}
   m_Name: Sword
-  m_EditorClassIdentifier: Assembly-CSharp::EquipItemData
+  m_EditorClassIdentifier: 
   itemCode: 0
-  itemName: "\uAC80"
-  itemDescription: "\uAC00\uC7A5 \uAE30\uBCF8\uC801\uC778 \uAC80\uC785\uB2C8\uB2E4."
+  itemName: 
+  itemDescription: 
   itemImage: {fileID: 0}
   canStack: 0
   maxQuantity: 1
-  dropItemPrefab: {fileID: 3704043987703311479, guid: ad1bf97b2c9ddfb4aac799b04feaf745, type: 3}
+  dropItemPrefab: {fileID: 0}
   equipType: 0
-  damage: 10
+  damage: 0
   defence: 0
   health: 0
   mana: 0
   moveSpeed: 0
-  equipModelPrefab: {fileID: 6038236905261613790, guid: 6caf509890b670b408389c9481b59604, type: 3}
+  equipModelPrefab: {fileID: 0}
