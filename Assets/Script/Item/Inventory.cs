@@ -92,54 +92,57 @@ public class Inventory
         return false;
     }
 
-    public void UseItem()
-    {
-        if (selectItem == null) return;
+    //public void UseItem()
+    //{
+    //    if (selectItem == null) return;
 
-        switch (selectItem.itemData.itemType)
+    //    switch (selectItem.itemData.itemType)
+    //    {
+    //        case ItemType.equip:
+
+    //            if (player.equipment.OnEquip(selectItem))
+    //            {
+    //                RemoveItem(selectSlotNum);
+    //            }
+    //            break;
+    //        case ItemType.consumable:
+    //            ConsumableItemData consumableItem = selectItem.itemData as ConsumableItemData;
+    //            selectItem.ChangeQauntity(-1);
+    //            foreach (ConsumeEffect consumEffect in consumableItem.consumEffect)
+    //            {
+    //                player.stat.ApplayItemEffect(consumEffect);
+    //            }
+    //            break;
+    //        case ItemType.material:
+    //            break;
+    //    }
+
+    //    if (selectItem.itemData.itemType != ItemType.equip && selectItem.quantity == 0)
+    //    {
+    //        RemoveItem(selectSlotNum);
+    //    }
+
+    //    OnInventoryUpdate?.Invoke(selectSlotNum, selectItem);
+    //}
+
+    public void UseItem(int slotNum = -1)
+    {
+        ItemInstance useItem = slotNum == -1 ? selectItem : invenItems[slotNum];
+        slotNum = slotNum == -1 ? selectSlotNum : slotNum;
+
+        if (useItem == null) return;
+
+        switch (useItem.itemData.itemType)
         {
             case ItemType.equip:
 
-                if (player.equipment.OnEquip(selectItem))
-                {
-                    RemoveItem(selectSlotNum);
-                }
-                break;
-            case ItemType.consumable:
-                ConsumableItemData consumableItem = selectItem.itemData as ConsumableItemData;
-                selectItem.ChangeQauntity(-1);
-                foreach (ConsumeEffect consumEffect in consumableItem.consumEffect)
-                {
-                    player.stat.ApplayItemEffect(consumEffect);
-                }
-                break;
-            case ItemType.material:
-                break;
-        }
-
-        if (selectItem.itemData.itemType != ItemType.equip && selectItem.quantity == 0)
-        {
-            RemoveItem(selectSlotNum);
-        }
-
-        OnInventoryUpdate?.Invoke(selectSlotNum, selectItem);
-    }
-
-    public void UseItem(int slotNum)
-    {
-        if (invenItems[slotNum] == null) return;
-
-        switch (invenItems[slotNum].itemData.itemType)
-        {
-            case ItemType.equip:
-
-                if (player.equipment.OnEquip(invenItems[slotNum]))
+                if (player.equipment.OnEquip(useItem))
                 {
                     RemoveItem(slotNum);
                 }
                 break;
             case ItemType.consumable:
-                ConsumableItemData consumableItem = invenItems[slotNum].itemData as ConsumableItemData;
+                ConsumableItemData consumableItem = useItem.itemData as ConsumableItemData;
                 invenItems[slotNum].ChangeQauntity(-1);
                 foreach (ConsumeEffect consumEffect in consumableItem.consumEffect)
                 {
@@ -150,12 +153,12 @@ public class Inventory
                 break;
         }
 
-        if (invenItems[slotNum] == null || invenItems[slotNum].quantity == 0)
+        if (useItem == null || useItem.quantity == 0)
         {
             RemoveItem(slotNum);
         }
 
-        OnInventoryUpdate?.Invoke(slotNum, invenItems[slotNum]);
+        OnInventoryUpdate?.Invoke(slotNum, useItem);
     }
 
     public void RemoveItem(int SlotNum)
