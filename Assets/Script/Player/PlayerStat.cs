@@ -41,6 +41,11 @@ public class PlayerStat : MonoBehaviour
         return moveSpeed + addMoveSpeed;
     }
 
+    public void ApplayItemEffect(ConsumeEffect consumeEffect)
+    {
+
+    }
+
 
     public void Death()
     {

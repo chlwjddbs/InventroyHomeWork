@@ -106,12 +106,12 @@ public class Inventory
                 }
                 break;
             case ItemType.consumable:
-                //var useableItem = selectItem.itemData as UseableItemData;
-                //foreach (UseEffect useEffect in useableItem.useEffect)
-                //{
-                //    player.playerStat.ApplyUseItem(useEffect);
-                //}
-                //selectItem.UseItem();
+                ConsumableItemData consumableItem = selectItem.itemData as ConsumableItemData;
+                selectItem.ChangeQauntity(-1);
+                foreach (ConsumeEffect consumEffect in consumableItem.consumEffect)
+                {
+                    player.stat.ApplayItemEffect(consumEffect);
+                }
                 break;
             case ItemType.material:
                 break;
@@ -139,11 +139,11 @@ public class Inventory
                 }
                 break;
             case ItemType.consumable:
-                ConsumableItemData consumableItem = selectItem.itemData as ConsumableItemData;
-                selectItem.ChangeQauntity(-1);
+                ConsumableItemData consumableItem = invenItems[slotNum].itemData as ConsumableItemData;
+                invenItems[slotNum].ChangeQauntity(-1);
                 foreach (ConsumeEffect consumEffect in consumableItem.consumEffect)
                 {
-                    
+                    player.stat.ApplayItemEffect(consumEffect);
                 }
                 break;
             case ItemType.material:
