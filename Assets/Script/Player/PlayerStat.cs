@@ -15,9 +15,12 @@ public class PlayerStat : MonoBehaviour
 
     public bool isDeath;
 
+    public Dictionary<ItemEffectType, ApplyItemEcffect> applyItemEffectDictionary = new Dictionary<ItemEffectType, ApplyItemEcffect>();
+
     public void Init(Player player)
     {
         this.player = player;
+        applyItemEffectDictionary[ItemEffectType.health] = new ApplyHealEffect(this);
     }
 
     public void TakeDamage(float damage)
@@ -41,11 +44,19 @@ public class PlayerStat : MonoBehaviour
         return moveSpeed + addMoveSpeed;
     }
 
-    public void ApplayItemEffect(ConsumeEffect consumeEffect)
+    public void ApplayItemEffect(ItemEffect itemEffect)
     {
-
+        if(applyItemEffectDictionary.TryGetValue(itemEffect.itemEffectType, out ApplyItemEcffect value))
+        {
+            value.ApplyEffect(itemEffect);
+        }
     }
 
+    public void  RecoverHealth(int amount)
+    {
+        Debug.Log($"{amount} 회복");
+        currentHealth = Mathf.Min(currentHealth += amount,GetTotalHealth());
+    }
 
     public void Death()
     {

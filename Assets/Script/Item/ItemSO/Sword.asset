@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   itemCode: 0
-  itemName: 
-  itemDescription: 
+  itemName: "\uAC80"
+  itemDescription: "\uC77C\uBC18 \uAC80\uC785\uB2C8\uB2E4."
   itemImage: {fileID: 0}
   canStack: 0
   maxQuantity: 1
-  dropItemPrefab: {fileID: 0}
+  dropItemPrefab: {fileID: 3704043987703311479, guid: ad1bf97b2c9ddfb4aac799b04feaf745, type: 3}
   equipType: 0
-  damage: 0
+  damage: 10
   defence: 0
   health: 0
   mana: 0
   moveSpeed: 0
-  equipModelPrefab: {fileID: 0}
+  equipModelPrefab: {fileID: 6038236905261613790, guid: 6caf509890b670b408389c9481b59604, type: 3}

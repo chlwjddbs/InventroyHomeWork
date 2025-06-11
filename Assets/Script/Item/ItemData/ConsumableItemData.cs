@@ -7,18 +7,18 @@ using UnityEngine;
 public class ConsumableItemData : ItemData
 {
     public override ItemType itemType => ItemType.consumable;
-    public List<ConsumeEffect> consumEffect;
+    public List<ItemEffect> itemEffect;
 }
 
 [Serializable]
-public class ConsumeEffect
+public class ItemEffect
 {
-    public ConsumableType consumableType;
+    public ItemEffectType itemEffectType;
     public int Amount;
     public int duration;
 }
 
-public enum ConsumableType
+public enum ItemEffectType
 {
     health,
     mana,

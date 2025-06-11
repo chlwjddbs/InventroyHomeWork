@@ -108,9 +108,9 @@ public class Inventory
             case ItemType.consumable:
                 ConsumableItemData consumableItem = selectItem.itemData as ConsumableItemData;
                 selectItem.ChangeQauntity(-1);
-                foreach (ConsumeEffect consumEffect in consumableItem.consumEffect)
+                foreach (ItemEffect itemEffect in consumableItem.itemEffect)
                 {
-                    player.stat.ApplayItemEffect(consumEffect);
+                    player.stat.ApplayItemEffect(itemEffect);
                 }
                 break;
             case ItemType.material:
@@ -141,9 +141,9 @@ public class Inventory
             case ItemType.consumable:
                 ConsumableItemData consumableItem = invenItems[slotNum].itemData as ConsumableItemData;
                 invenItems[slotNum].ChangeQauntity(-1);
-                foreach (ConsumeEffect consumEffect in consumableItem.consumEffect)
+                foreach (ItemEffect itemEffect in consumableItem.itemEffect)
                 {
-                    player.stat.ApplayItemEffect(consumEffect);
+                    player.stat.ApplayItemEffect(itemEffect);
                 }
                 break;
             case ItemType.material:
